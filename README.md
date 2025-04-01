@@ -1,5 +1,8 @@
 # Hópverkefni 2 Vefforritun - Task Tasker
 
+https://mui.com/material-ui/material-icons/  icons
+
+
 ## Verkefnakröfur
 
 Virkni fer mestmegnis eftir því hvað var útfært í hópverkefni 1.

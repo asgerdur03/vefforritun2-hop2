@@ -1,95 +1,43 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div className={styles.container}>
+        <h1>Lorem Ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam congue ligula a ligula porttitor accumsan. 
+          Donec vel nibh malesuada elit tempor pellentesque. Praesent sit amet varius dolor. Fusce mauris mauris, pharetra ornare 
+          justo tincidunt, accumsan malesuada urna. Suspendisse varius euismod lacus non feugiat. Nulla posuere lacinia libero ac 
+          lobortis. Sed diam lacus, facilisis at felis eu, egestas volutpat leo. Morbi fermentum cursus lectus, eu laoreet nisi pharetra at.
+        </p>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/man.jpg"
+          alt="static content"
+          width={500}
+          height={300}
         />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <p>Curabitur a est efficitur, porta augue vel, imperdiet enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Pellentesque eu consequat ligula, in maximus purus. Aenean rhoncus mi ut sagittis pulvinar. Suspendisse maximus lectus 
+          faucibus enim mattis, et mollis augue ornare. Integer mattis luctus orci sed aliquet. Proin vel sollicitudin nibh.
+          Integer vitae risus venenatis, facilisis est sit amet, viverra mi. Integer id ultrices turpis. Fusce sed lorem consequat, mattis 
+          mi ut, tincidunt leo. Aliquam pellentesque gravida lorem, congue bibendum lacus facilisis vitae. Curabitur aliquet purus non convallis 
+          vehicula. Nunc ac quam dignissim, mattis eros quis, venenatis quam.
+        </p>
+        <p>Nulla ex enim, molestie nec ante a, venenatis facilisis mauris. Integer porta massa non tortor egestas, vel sodales metus luctus. 
+          Cras laoreet, turpis non aliquet interdum, nibh leo maximus nunc, at congue turpis nunc vel justo. Don
+          ec tincidunt pulvinar felis, quis convallis odio tempus et. Duis a finibus odio. Mauris feugiat augue ac ante elementum porttitor. 
+          Praesent eget nisi aliquet sapien tincidunt malesuada. Sed ornare, odio quis ullamcorper congue, magna nulla ultrices tellus, non aliquam 
+          mi purus quis tellus. Fusce vel sapien sed est rutrum gravida.
+        </p>
+
+        <Image
+          src="/task-img.jpg"
+          alt="static content"
+          width={500}
+          height={300}
+        />
     </div>
   );
+
 }

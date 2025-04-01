@@ -1,0 +1,14 @@
+.footer{
+    background-color: var(--theme-color-light);
+    padding: var(--padding-page);
+    text-align: center;
+    color: var(--theme-color-really-dark);
+    border-top: 5px solid var(--theme-color-dark);
+    
+}
+
+.footer a {
+    color: var(--theme-color-dark);
+    text-decoration: none;
+    margin-left: 0.5rem;
+}

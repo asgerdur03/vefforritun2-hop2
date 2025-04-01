@@ -1,0 +1,21 @@
+
+.navbar {
+    background-color: var(--theme-color-light);
+    padding: var(--padding-page);
+    display: flex;
+    gap: var(--gap-flex);
+    border-bottom: 5px solid var(--theme-color-dark);
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+}
+.navbar a:hover {
+    color: var(--theme-color-dark);
+}
+
+.active {
+    font-weight: bold;
+    border-bottom: 2px solid var(--theme-color-dark);
+}

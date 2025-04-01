@@ -1,0 +1,22 @@
+
+
+.taskContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gap-flex);
+}
+
+.taskButton{
+    /*
+    todo: setja sama style á takka og á task
+    */
+    border: none;
+    background-color: var(--theme-color-light);
+    width: calc(50% - 0.5rem);
+    padding: var(--padding-page);
+    border-radius: var(--big-radius);
+    margin-bottom: var(--margin-small); 
+    
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}

@@ -1,24 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hópverkefni 2 Vefforritun - Task Tasker
 
-## Getting Started
+## Verkefnakröfur
 
-First, run the development server:
+Virkni fer mestmegnis eftir því hvað var útfært í hópverkefni 1.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Verkefnið skal hafa a.m.k. þrjár mismunandi síður/virkni fyrir utan forsíðu. T.d. listi af færslum með síðuflettingum, stök færsla, leitarniðurstöður. Að auki skal útfæra þá virkni sem tiltekin er hér.
+- [ ] **Amk 3 síður/virkni**
+    - [ ] Listi af Tasks, paginated /tasks
+    - [ ] Tasks by category /tasks/[category]
+    - [ ] Register, nýskráning (og auomatic login?)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [x] **Valmynd og haus**: Nav sem sýnir hvar við erum stödd. Aðgengileg á öllum síðum. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [x] **Fótur**: Mock fótur, og admin only virkni linkur. 
+
+- [x] **Forsíða**: Static dummy content.
+
+- [ ] **Notendur**: 
+    - [ ] Innskráning (og útskráning)
+    - [ ] Nýskráning (auka, telst sem síða/virkni)
+    - [ ] Notendaspecific virkni
+
+- [ ] **Myndavirkni** Útbúa skal virkni á móti myndavirkni í vefþjónustu þ.a. hægt sé að setja inn myndir gegnum form.
+
+- [ ] **Útlit**: Basic, grid eða flex og skalanlegt
+
+- [ ] **Alment**: 
+    - [x] Next.js og TypeScript
+    - [x] Server-side rendering og app router
+    - [ ] Loading state við vefþjónustuköll og bregðast við villum. Þar sem gögn geta verið tóm skal huga að empty state.
+    - [ ] 404 ef síða ef síða finnst ekki, og heimildarsíðu ef ekki er heimild til. 
+
+- [ ] **Tæki og tól**: 
+    - [ ] Villulaust eslint, frjálst reglusett
+    - [ ] Vefur settur upp í hýsingu
+    - [ ] README með: 
+        - Upplýsingar um hvernig setja skuli upp verkefnið
+        - Innskráning fyrir admin stjórnanda ásamt lykilorði. 
+        - Nöfn og notendanöfn allra í hóp.
+    - [ ] Hópavinna og pull request með git
+
+
+
+
+## Mat
+- 20% Verkefni uppsett í Next.js og tengist vefþjónustum, almenn virkni 
+- útfærð.
+- 30% Útfærslur á móti vefþjónustum, a.m.k. þrjár síður.
+- 10% Útlit.
+- 10% Innskráning notanda.
+- 10% Útfært á móti myndavirkni.
+- 10% Tæki, tól og test. README uppsett, verkefni keyrir í hýsingu.
+- 10% Hópavinna með Git og GitHub PR.
+
+
+
 
 ## Learn More
 

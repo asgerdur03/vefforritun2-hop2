@@ -1,0 +1,35 @@
+.form{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    border-radius: var(--big-radius);
+    background-color: var(--theme-color-light);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-flex);
+    padding: 2rem;
+}
+
+.username, .password{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--gap-flex);
+}
+
+.form button{
+    background-color: var(--theme-color-really-dark);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--small-radius);
+}
+
+.form button:hover{
+    background-color: var(--theme-color-dark);
+}
+
+.form input{
+    padding: 0.5rem;
+    border-radius: var(--small-radius);
+    border: none;
+}

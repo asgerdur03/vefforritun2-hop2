@@ -1,0 +1,25 @@
+.task{
+    background-color: var(--theme-color-light);
+    width: calc(50% - 0.5rem);
+    padding: var(--padding-page);
+    border-radius: var(--big-radius);
+    margin-bottom: var(--margin-small);
+    
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 620px) {
+    .task{
+        width: 100%;
+    }
+    
+}
+
+
+.taskActions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--gap-flex);
+    margin-top: var(--margin-small);
+}

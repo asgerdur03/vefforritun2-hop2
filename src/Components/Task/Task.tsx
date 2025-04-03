@@ -4,7 +4,12 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 import { Task as TaskType } from "@/types";
 import { TaskApi } from "@/api";
 
-
+/*  
+* Task
+* Handles delete, edit and looks (css)
+* TODO: edit task
+* 
+*/
 
 
 export default function Task({ id, title, description, dueDate, category, userId }: TaskType) {

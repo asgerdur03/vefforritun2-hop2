@@ -2,7 +2,10 @@
 import Link from "next/link";
 import styles from "./Footer.module.css"
 
-
+/*
+* Footer with basic copyright
+* Links to admin panel
+*/
 export default function Footer() {
     return (
         <footer className={styles.footer}>

@@ -9,6 +9,12 @@ import { TaskApi } from "@/api";
 import { Task as TaskType } from "@/types";
 import { useAuth } from "@/context/AuthContext";
 
+/**
+ * Fetches and maps tasks from the correct user. 
+ * Paginates 10 tasks at a time
+ * Shows logged in user
+ * TODO: Create new task
+ */
 
 export default function Tasks() {
     const {user, loading} = useAuth();
@@ -41,6 +47,7 @@ export default function Tasks() {
             
         };
         fetchTasks();
+        // if I add tasks, console goes crazy rerendering, if not, i need to reload when i delete task
     }, [loading, user, offset]);
 
 

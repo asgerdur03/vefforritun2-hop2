@@ -5,15 +5,17 @@ import Link from "next/link";
 import { TaskApi } from "@/api";
 import { useAuth } from "@/context/AuthContext";
 
+/*
+* Login form, calls api and sets the token and the user to the context,
+* if the login is successful, makes user available everywhere until logout
+* Links to register page. 
+*/
 export default function LoginForm() {
     const [username, setUsernamel] = useState('');
     const [password, setPassword] = useState('');
 
     const {login} = useAuth();
     
-
-
-
     const handleLogin = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("Login:", username, password);
@@ -33,8 +35,6 @@ export default function LoginForm() {
             console.error('Error logging in:', error);
         }
     }
-
-
 
     return (
         <div>

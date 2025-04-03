@@ -5,6 +5,12 @@ import Link from "next/link";
 import { TaskApi } from "@/api";
 import { useAuth } from "@/context/AuthContext";
 
+/*
+* Register form, calls api and sets the token and the user to the context,
+* if the register is successful, logs the user in, and makes user available everywhere until logout
+* Links to login page.
+* 
+*/
 export default function RegisterForm() {
     const [username, setUsernamel] = useState('');
     const [password, setPassword] = useState('');

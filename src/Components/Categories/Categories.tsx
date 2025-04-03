@@ -6,7 +6,11 @@ import { useEffect } from "react";
 import { TaskApi } from "@/api";
 import styles from "./Categories.module.css"
 
-
+/*
+* List of categories
+* TODO: make pretty, maybe dropdown menu 
+* Possibly not needed, just add the category to the task and then filters
+ */
 
 export default function Categories() {
     const [categories, setCategories] = useState<Category[]>();

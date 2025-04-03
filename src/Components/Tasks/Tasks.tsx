@@ -16,8 +16,11 @@ export default function Tasks() {
 
     const [tasks, setTasks] = useState<TaskType[]|null>(null);
 
+    const [offset, setOffset] = useState(0);
+
     useEffect(() => {
         const fetchTasks = async () => {
+            console.log(offset);
             if (!user){
                 setLoggedIn(false);
                 return;
@@ -27,7 +30,7 @@ export default function Tasks() {
             if (!loading && user){
                 try {
                     const api = new TaskApi();
-                    const data=await api.getTasks();
+                    const data=await api.getTasks(offset);
                     if (data) {
                         setTasks(data.tasks);
                     }
@@ -38,13 +41,22 @@ export default function Tasks() {
             
         };
         fetchTasks();
-    }, [loading, user]);
+    }, [loading, user, offset]);
 
 
     const handleCreateTask = () => {
         if (!user) return console.log('not logged in');
 
         console.log('create task');	
+    }
+
+    const nextPage = () => {
+        setOffset(offset + 10);
+        console.log(offset);
+    }
+
+    const prevPage = () => {
+        setOffset(offset - 10);
     }
     
     return (
@@ -68,6 +80,11 @@ export default function Tasks() {
                 ))}
                 <button className={styles.taskButton} onClick={handleCreateTask}>Create Task</button>
             </div>
+
+            <button onClick={prevPage} disabled={offset == 0}>prev</button>
+            <p>Page: {(offset/10)+1}</p>
+            <button onClick={nextPage} disabled={(tasks?.length ?? 0) < 10}>next</button>
+
         </div>
     )
 }

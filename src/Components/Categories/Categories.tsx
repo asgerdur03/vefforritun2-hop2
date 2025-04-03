@@ -17,7 +17,6 @@ export default function Categories() {
             try {
                 const api = new TaskApi();
                 const data = await api.getCategories();
-                console.log(data);
                 if (data) {
                     setCategories(data);
                 }
@@ -27,11 +26,6 @@ export default function Categories() {
         };
         fetchCategories();
     }, []);
-
-    console.log('categories', categories);
-
-
-    
 
     // map each category as link
 

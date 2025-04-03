@@ -1,5 +1,26 @@
 # Hópverkefni 2 Vefforritun - Task Tasker
 
+| Nafn           | Netfang                  | Notandanafn   |
+|--------------  |--------------------------|---------------|
+| Ásgerður Júlía | ajg20@hi.is              | @asgerdur03   |
+| Freydís Xuan   | fxl1@hi.is               | @freydisxuan  |
+| Hermann Ingi   | hih65@hi.is              | @hemmih       |
+| Vilborg Erlends| vie15@hi.is              | @vilborg14    |
+
+
+
+# Admin
+
+{
+    "username": "admin",
+    "password": "password"
+}
+{
+    "username" : "user1",
+    "password": "password"
+}
+
+
 https://mui.com/material-ui/material-icons/  icons
 
 

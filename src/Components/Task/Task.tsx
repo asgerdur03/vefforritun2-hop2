@@ -1,23 +1,26 @@
 import styles from "./Task.module.css"
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditNoteIcon from '@mui/icons-material/EditNote';
+import { Task as TaskType } from "@/types";
+import { TaskApi } from "@/api";
 
 
-interface TaskProps {
-    id: number,
-    title: string
-    description: string
-    dueDate: string
-    category: string
-    tags: string[]
-}
 
 
-export default function Task({ id, title, description, dueDate, category, tags }: TaskProps) {
-    // todo: get correct task type and attributes, implements the delete and edit
+export default function Task({ id, title, description, dueDate, category, userId }: TaskType) {
+    // get tasks to refresh on delete (and edit?)
 
-    const handleDeleteTask = () => {
+    const handleDeleteTask = async() => {
+        try {
+            const api = new TaskApi();
+            const response = await api.deleteTask(id);
+            console.log("response", response);
+            alert(response?.message);
+        } catch (error) {
+            console.error('Error deleting task:', error);
+        }
         console.log('delete task', id);
+
     }
 
     const handleEditTask = () => {
@@ -31,7 +34,6 @@ export default function Task({ id, title, description, dueDate, category, tags }
             <p className={styles.taskDescription}>{description}</p>
             <p className={styles.taskDueDate}>{dueDate}</p>
             <p className={styles.taskCategory}>{category}</p>
-            <p className={styles.taskTags}>{tags.join(', ')}</p>
             <div className={styles.taskActions}>
                 <EditNoteIcon className={styles.editIcon} onClick={handleEditTask}/>
                 <DeleteIcon className={styles.deleteIcon} onClick={handleDeleteTask}/>

@@ -1,12 +1,23 @@
 'use client';
-import React from "react";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 import { usePathname } from "next/navigation";
+import { LogoutRounded } from "@mui/icons-material";
+import { TaskApi } from "@/api";
+import { useState } from "react";
+import { useAuth} from "@/context/AuthContext";
 
 export default function Navbar() {
+    const {user, logout, loading} = useAuth();
+    // todo: check if user is logged in, if logged in show logout, else show login
+
+    const loggedIn = user !== null
 
     const pathName = usePathname();
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
     return (
         
         <div>
@@ -21,7 +32,13 @@ export default function Navbar() {
                 Tasks
             </Link>
 
-            <Link href="login" className={`${styles.link} ${pathName === '/login' ? styles.active : ''}`}> Login</Link>
+            {loggedIn ? (
+                <LogoutRounded onClick={logout}/>) : (<Link href="login" className={`${styles.link} ${pathName === '/login' ? styles.active : ''}`}> Login</Link>)
+            }
+            
+        
+            <p>{user?.username}</p>
+
             </nav>
 
             

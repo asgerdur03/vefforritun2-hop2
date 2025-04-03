@@ -9,9 +9,9 @@ Virkni fer mestmegnis eftir því hvað var útfært í hópverkefni 1.
 
 Verkefnið skal hafa a.m.k. þrjár mismunandi síður/virkni fyrir utan forsíðu. T.d. listi af færslum með síðuflettingum, stök færsla, leitarniðurstöður. Að auki skal útfæra þá virkni sem tiltekin er hér.
 - [ ] **Amk 3 síður/virkni**
-    - [ ] Listi af Tasks, paginated /tasks
+    - [ ] Listi af Tasks, paginated /tasks (listi done, ekki pagination)
     - [ ] Tasks by category /tasks/[category]
-    - [ ] Register, nýskráning (og auomatic login?)
+    - [x] Register, nýskráning (og auomatic login?)
 
 
 - [x] **Valmynd og haus**: Nav sem sýnir hvar við erum stödd. Aðgengileg á öllum síðum. 
@@ -21,11 +21,11 @@ Verkefnið skal hafa a.m.k. þrjár mismunandi síður/virkni fyrir utan forsí�
 - [x] **Forsíða**: Static dummy content.
 
 - [ ] **Notendur**: 
-    - [ ] Innskráning (og útskráning)
-    - [ ] Nýskráning (auka, telst sem síða/virkni)
+    - [x] Innskráning (og útskráning)
+    - [x] Nýskráning (auka, telst sem síða/virkni)
     - [ ] Notendaspecific virkni
 
-- [ ] **Myndavirkni** Útbúa skal virkni á móti myndavirkni í vefþjónustu þ.a. hægt sé að setja inn myndir gegnum form.
+- [ ] **Myndavirkni** Útbúa skal virkni á móti myndavirkni í vefþjónustu þ.a. hægt sé að setja inn myndir gegnum form. (Upload profile pic )
 
 - [ ] **Útlit**: Basic, grid eða flex og skalanlegt
 

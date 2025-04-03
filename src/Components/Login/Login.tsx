@@ -1,17 +1,39 @@
 'use client';
-import { useState} from "react";
+import { useEffect, useState} from "react";
 import styles from "./Login.module.css"
 import Link from "next/link";
+import { TaskApi } from "@/api";
+import { useAuth } from "@/context/AuthContext";
 
 export default function LoginForm() {
     const [username, setUsernamel] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    const {login} = useAuth();
+    
+
+
+
+    const handleLogin = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("Login:", username, password);
-        // login logic here
-    };
+        try {
+            const api = new TaskApi();
+            const result =  await api.login(username, password);
+            if (result) {
+                console.log(result.user);
+                localStorage.setItem('token', result.token);
+                login(result.user, result.token);
+            }else
+            {
+                console.log("Login failed");
+            }
+
+        } catch (error) {
+            console.error('Error logging in:', error);
+        }
+    }
+
 
 
     return (

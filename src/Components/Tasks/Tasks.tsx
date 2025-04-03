@@ -1,28 +1,61 @@
 'use client'
 
-import React from "react";
+import React, { use } from "react";
 import Task from "../Task/Task";
 import styles from "./Tasks.module.css"
+import { useState } from "react";
+import { useEffect } from "react";
+import { TaskApi } from "@/api";
+import { Task as TaskType } from "@/types";
+import { useAuth } from "@/context/AuthContext";
 
-const mockTasks = [
-    { id: 1, title: "Task 1", description: "Description 1", dueDate: "2023-06-01", category: "Category 1", tags: ["Tag 1", "Tag 2"] },
-    { id: 2, title: "Task 2", description: "Description 2", dueDate: "2023-06-02", category: "Category 2", tags: ["Tag 3", "Tag 4"] },
-    { id: 3, title: "Task 3", description: "Description 3", dueDate: "2023-06-03", category: "Category 3", tags: ["Tag 5", "Tag 6"] },
-    { id: 4, title: "Task 4", description: "Description 4", dueDate: "2023-06-04", category: "Category 4", tags: ["Tag 7", "Tag 8"] },
-];
 
 export default function Tasks() {
+    const {user, loading} = useAuth();
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const [tasks, setTasks] = useState<TaskType[]|null>(null);
+
+    useEffect(() => {
+        const fetchTasks = async () => {
+            if (!user){
+                setLoggedIn(false);
+                return;
+            }else {setLoggedIn(true);}
+            
+            
+            if (!loading && user){
+                try {
+                    const api = new TaskApi();
+                    const data=await api.getTasks();
+                    if (data) {
+                        setTasks(data.tasks);
+                    }
+                } catch (error) {
+                console.error('Error fetching tasks:', error);
+                }
+            }
+            
+        };
+        fetchTasks();
+    }, [loading, user]);
+
 
     const handleCreateTask = () => {
-        alert('create task');
+        if (!user) return console.log('not logged in');
+
+        console.log('create task');	
     }
     
     return (
         <div className={styles.container}>
+            {loggedIn ? (<p>Logged in as {user?.username}</p>) : (<p>Not logged in</p>)}
+
+
             <h1>Tasks</h1>
 
             <div className={styles.taskContainer}>
-                {mockTasks.map((task) => (
+                {tasks?.map((task) => (
                 <Task 
                     key={task.id} 
                     id={task.id} 
@@ -30,7 +63,7 @@ export default function Tasks() {
                     description={task.description}
                     dueDate={task.dueDate}
                     category={task.category}
-                    tags={task.tags}
+                    userId={task.userId}
                 />
                 ))}
                 <button className={styles.taskButton} onClick={handleCreateTask}>Create Task</button>

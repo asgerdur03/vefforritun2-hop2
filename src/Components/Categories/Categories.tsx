@@ -1,25 +1,37 @@
 'use client';
 import React, { useState } from "react";
 import Link from "next/link";
+import { Category } from "@/types";
+import { useEffect } from "react";
+import { TaskApi } from "@/api";
+import styles from "./Categories.module.css"
 
-interface Category {
-    id: number;
-    name: string;
-}
 
-const mockCategories = [
-    { id: 1, name: 'Category 1' },
-    { id: 2, name: 'Category 2' },
-    { id: 3, name: 'Category 3' },
-]
 
 export default function Categories() {
-    const [categories, setCategories] = useState<Category[]>([]);
+    const [categories, setCategories] = useState<Category[]>();
     // api call
 
-    if (categories.length === 0) {
-        setCategories(mockCategories);
-    }
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const api = new TaskApi();
+                const data = await api.getCategories();
+                console.log(data);
+                if (data) {
+                    setCategories(data);
+                }
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        };
+        fetchCategories();
+    }, []);
+
+    console.log('categories', categories);
+
+
+    
 
     // map each category as link
 
@@ -29,8 +41,8 @@ export default function Categories() {
         <div>
             <h1>Categories</h1>
 
-            {categories.map((category) => (
-                <Link key={category.id} href={`/tasks/${category.id}`}>{category.name}</Link>
+            {categories?.map((category) => (
+                <Link key={category.id} href={`/tasks/${category.id}`} className={styles.categoryLink}>{category.title}</Link>
             ))}
         </div>
     );

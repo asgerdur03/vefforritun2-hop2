@@ -100,8 +100,8 @@ export class TaskApi{
     }
 
 
-    async getTasks(): Promise<{tasks: Task[]}|null> {
-        const url = `${BASE_URL}/tasks`;
+    async getTasks(offset: number): Promise<{tasks: Task[]}|null> {
+        const url = `${BASE_URL}/tasks?offset=${offset}`;
         const response = await this.fetchFromApi<{tasks: Task[]}| null>(url);
 
         return response;

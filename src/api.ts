@@ -1,14 +1,14 @@
-import { useAuth } from "./context/AuthContext";
-import { User, Category, Task} from "./types";
+import { User, Category, Task, CreateTask} from "./types";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3001';
 
 export class TaskApi{
+
     async fetchFromApi<T>(
         url:string,
         options?: {
             method?: 'GET' | 'POST' | 'PATCH' | 'DELETE';
-            body?: any;
+            body?: object;
             content?: 'multipart/form-data'  | 'application/json';
         }
 
@@ -107,12 +107,15 @@ export class TaskApi{
         return response;
     }
 
-    async createTask(task: string) {
+    async createTask(task: CreateTask): Promise<Task | null> {
         const url = `${BASE_URL}/tasks`;
-        const response = await this.fetchFromApi<{task: string}>(url, {
+        const response = await this.fetchFromApi<Task| null>(url, {
             method: 'POST',
             body: {
-                task
+                title: task.title,
+                description: task.description,
+                categoryId: task.categoryId,
+                due: null
             }
         });
         return response;
@@ -127,15 +130,14 @@ export class TaskApi{
     }
 
 
-    async getUser() {
-        const url = `${BASE_URL}/users/me`;
-        const response = await this.fetchFromApi<{user: string}>(url);
+    async getUsers(offset: number): Promise<User[]|null> {
+        const url = `${BASE_URL}/users?offset=${offset}`;
+        const response = await this.fetchFromApi<User[]| null>(url);
+
         return response;
     }
 
-
-
-
+    
 
 
 }

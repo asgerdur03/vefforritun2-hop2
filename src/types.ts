@@ -9,16 +9,18 @@ export type Task = {
     id: string;
     title: string;
     description: string;
-    category: string;
+    categoryId: string;
     dueDate: string;
     userId: string;
     //tags?
 };
 
-export type Tag = {
-    id: string;
-    name: string;
-};
+export type CreateTask ={
+    title: string;
+    description: string;
+    categoryId: string;
+    dueDate: string;
+}
 
 export type Category = {
     id: string;

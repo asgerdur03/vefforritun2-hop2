@@ -29,10 +29,12 @@ https://mui.com/material-ui/material-icons/  icons
 Virkni fer mestmegnis eftir því hvað var útfært í hópverkefni 1.
 
 Verkefnið skal hafa a.m.k. þrjár mismunandi síður/virkni fyrir utan forsíðu. T.d. listi af færslum með síðuflettingum, stök færsla, leitarniðurstöður. Að auki skal útfæra þá virkni sem tiltekin er hér.
-- [ ] **Amk 3 síður/virkni**
+- [x] **Amk 3 síður/virkni**
     - [x] Listi af Tasks, paginated /tasks (listi done, ekki pagination)
-    - [ ] Tasks by category /tasks/[category]
     - [x] Register, nýskráning (og auomatic login?)
+    - [x] Delete task 
+    - [x] Create task (fix the data shit)
+    - [x] Get users (admin only)
 
 
 - [x] **Valmynd og haus**: Nav sem sýnir hvar við erum stödd. Aðgengileg á öllum síðum. 
@@ -41,30 +43,29 @@ Verkefnið skal hafa a.m.k. þrjár mismunandi síður/virkni fyrir utan forsí�
  
 - [x] **Forsíða**: Static dummy content.
 
-- [ ] **Notendur**: 
+- [x] **Notendur**: 
     - [x] Innskráning (og útskráning)
     - [x] Nýskráning (auka, telst sem síða/virkni)
-    - [ ] Notendaspecific virkni
+    - [x] Notendaspecific virkni (get, delete, edit?)
 
 - [ ] **Myndavirkni** Útbúa skal virkni á móti myndavirkni í vefþjónustu þ.a. hægt sé að setja inn myndir gegnum form. (Upload profile pic )
 
-- [ ] **Útlit**: Basic, grid eða flex og skalanlegt
+- [x] **Útlit**: Basic, grid eða flex og skalanlegt
 
-- [ ] **Alment**: 
+- [x] **Alment**: 
     - [x] Next.js og TypeScript
     - [x] Server-side rendering og app router
-    - [ ] Loading state við vefþjónustuköll og bregðast við villum. Þar sem gögn geta verið tóm skal huga að empty state.
-    - [ ] 404 ef síða ef síða finnst ekki, og heimildarsíðu ef ekki er heimild til. 
+    - [x] Loading state við vefþjónustuköll og bregðast við villum. Þar sem gögn geta verið tóm skal huga að empty state.
+    - [x] 404 ef síða ef síða finnst ekki, og heimildarsíðu ef ekki er heimild til. 
 
 - [ ] **Tæki og tól**: 
-    - [ ] Villulaust eslint, frjálst reglusett
+    - [x] Villulaust eslint, frjálst reglusett
     - [ ] Vefur settur upp í hýsingu
     - [ ] README með: 
         - Upplýsingar um hvernig setja skuli upp verkefnið
         - Innskráning fyrir admin stjórnanda ásamt lykilorði. 
         - Nöfn og notendanöfn allra í hóp.
     - [ ] Hópavinna og pull request með git
-
 
 
 

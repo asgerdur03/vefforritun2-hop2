@@ -4,11 +4,17 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 import { Task as TaskType } from "@/types";
 import { TaskApi } from "@/api";
 
+/*  
+* Task
+* Handles delete, edit and looks (css)
+* TODO: edit task
+* 
+*/
 
 
-
-export default function Task({ id, title, description, dueDate, category, userId }: TaskType) {
+export default function Task({ id, title, description, dueDate, categoryId, userId }: TaskType) {
     // get tasks to refresh on delete (and edit?)
+    console.log("categoryId and userId", categoryId, userId);
 
     const handleDeleteTask = async() => {
         try {
@@ -33,7 +39,6 @@ export default function Task({ id, title, description, dueDate, category, userId
             <h1 className={styles.taskTitle}>{title}</h1>
             <p className={styles.taskDescription}>{description}</p>
             <p className={styles.taskDueDate}>{dueDate}</p>
-            <p className={styles.taskCategory}>{category}</p>
             <div className={styles.taskActions}>
                 <EditNoteIcon className={styles.editIcon} onClick={handleEditTask}/>
                 <DeleteIcon className={styles.deleteIcon} onClick={handleDeleteTask}/>

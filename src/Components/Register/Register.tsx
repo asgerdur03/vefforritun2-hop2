@@ -15,10 +15,17 @@ export default function RegisterForm() {
     const [username, setUsernamel] = useState('');
     const [password, setPassword] = useState('');
 
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+
     const {login} = useAuth();
 
     const handleRegister = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setLoading(true);
+        setError('');
+        setSuccess(false);
         console.log('Register:', username, password);
         try {
             const api = new TaskApi();
@@ -30,22 +37,32 @@ export default function RegisterForm() {
                     console.log(response.user);
                     localStorage.setItem('token', response.token);
                     login(response.user, response.token);
+                    setSuccess(true);
                 }else
                 {
+                    setError('Login failed after registration');
                     console.log("Login failed");
                 }
             } else {
+                setError('Registration failed');
                 console.log("Registration failed");
             }
 
         } catch (error) {
+            setError('something went wrong');
             console.error('Error registering:', error);
+        } finally {
+            setLoading(false);
         }
         // register logic here
     }
 
     return (
         <div>
+            {loading && <p>Registering...</p>}
+            {success && <p style={{ color: 'green' }}>Registration successful!</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+
             <form className={styles.form} onSubmit={handleRegister} >
                 <div className={styles.username}>
                     <label htmlFor="username">Username:</label>

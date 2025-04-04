@@ -13,31 +13,50 @@ import { useAuth } from "@/context/AuthContext";
 export default function LoginForm() {
     const [username, setUsernamel] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     const {login} = useAuth();
     
     const handleLogin = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setLoading(true);
+        setError('');
+        setSuccess(false);
         console.log("Login:", username, password);
         try {
             const api = new TaskApi();
             const result =  await api.login(username, password);
             if (result) {
-                console.log(result.user);
-                localStorage.setItem('token', result.token);
-                login(result.user, result.token);
+                if (result.token) {
+                    console.log("token after login",result.token);
+                    localStorage.setItem('token', result.token);
+                    login(result.user, result.token);
+                    setSuccess(true);
+                } else {
+                    setError('Login failed, no token returned');
+                }
             }else
             {
+                setError('Api returned null');
                 console.log("Login failed");
             }
 
         } catch (error) {
+            setError('Login failed');
             console.error('Error logging in:', error);
+        } finally {
+            setLoading(false);
         }
     }
 
     return (
         <div>
+            {loading && <p>Logging in...</p>}
+            {success && <p style= {{color: "green"}}>Login successful</p>}
+            {error && <p style= {{color: "red"}}>{error}</p>}
+
             <form className={styles.form} onSubmit={handleLogin}>
                 <div className={styles.username}>
                     <label htmlFor="username">Username:</label>

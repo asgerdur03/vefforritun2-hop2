@@ -14,6 +14,7 @@ import { TaskApi } from "@/api";
 
 export default function Task({ id, title, description, dueDate, categoryId, userId }: TaskType) {
     // get tasks to refresh on delete (and edit?)
+    console.log("categoryId and userId", categoryId, userId);
 
     const handleDeleteTask = async() => {
         try {

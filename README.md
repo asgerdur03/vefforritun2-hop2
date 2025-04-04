@@ -38,7 +38,7 @@ Verkefnið skal hafa a.m.k. þrjár mismunandi síður/virkni fyrir utan forsí�
     - [x] 404 ef síða ef síða finnst ekki, og heimildarsíðu ef ekki er heimild til. 
 
 - [ ] **Tæki og tól**: 
-    - [ ] Villulaust eslint, frjálst reglusett
+    - [x] Villulaust eslint, frjálst reglusett
     - [ ] Vefur settur upp í hýsingu
     - [ ] README með: 
         - Upplýsingar um hvernig setja skuli upp verkefnið

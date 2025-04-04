@@ -8,7 +8,7 @@ export class TaskApi{
         url:string,
         options?: {
             method?: 'GET' | 'POST' | 'PATCH' | 'DELETE';
-            body?: any;
+            body?: object;
             content?: 'multipart/form-data'  | 'application/json';
         }
 

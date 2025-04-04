@@ -3,8 +3,6 @@ import Link from "next/link";
 import styles from "./Navbar.module.css";
 import { usePathname } from "next/navigation";
 import { LogoutRounded } from "@mui/icons-material";
-import { TaskApi } from "@/api";
-import { useState } from "react";
 import { useAuth} from "@/context/AuthContext";
 
 /*

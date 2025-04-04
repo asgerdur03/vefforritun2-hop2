@@ -50,7 +50,7 @@ export default function AdminActions() {
             <h1>Admin Actions</h1>
             {loadingUsers && <p>Loading users...</p>}
             
-            {users?.map((user, index) => (<p key={user.id}> {user.username}</p>))}
+            {users?.map((user) => (<p key={user.id}> {user.username}</p>))}
 
             <button onClick={() => setOffset(offset - 10)} disabled={offset === 0}>prev</button>
             <button onClick={() => setOffset(offset + 10)} disabled={!users || users.length < 10}>next</button>

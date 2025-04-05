@@ -19,3 +19,16 @@
     font-weight: bold;
     border-bottom: 2px solid var(--theme-color-dark);
 }
+
+.userImage {
+    border-radius: 50%;
+}
+
+.userImage:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.logout:hover {
+    color: var(--theme-color-dark);
+}

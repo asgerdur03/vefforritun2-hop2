@@ -12,3 +12,7 @@
     text-decoration: none;
     margin-left: 0.5rem;
 }
+
+.link:hover {
+    color: var(--theme-color-really-dark);
+}

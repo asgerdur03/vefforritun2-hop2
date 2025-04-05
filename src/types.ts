@@ -3,6 +3,7 @@ export type User = {
     username: string;
     password: string;
     admin: boolean;
+    imageUrl: string;
 };
 
 export type Task = {

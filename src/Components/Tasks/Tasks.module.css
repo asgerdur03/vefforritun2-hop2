@@ -1,7 +1,10 @@
-
+.tasks{
+    width: 100%;
+}
 
 .taskContainer{
     display: flex;
+    width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     gap: var(--gap-flex);
@@ -12,6 +15,7 @@
     todo: setja sama style á takka og á task
     */
     border: none;
+    min-width: fit-content;
     background-color: var(--theme-color-light);
     width: calc(50% - 0.5rem);
     padding: var(--padding-page);
@@ -21,11 +25,13 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.taskButton:hover{
+    background-color: var(--theme-color-dark);
+}
+
 .overlay{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: absolute;
+    width: 80%;
     height: 100%;
     background: rgba(0,0,0,0.8);
     display: flex;

@@ -77,7 +77,7 @@ export default function Tasks() {
 
     
     return (
-        <div className={styles.container}>
+        <div className={styles.tasks}>
             {loggedIn ? (<p>Logged in as {user?.username}</p>) : (<p>Not logged in</p>)}
             <h1>Tasks</h1>
 

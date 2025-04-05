@@ -26,6 +26,11 @@ export default function AdminActions() {
                 setLoadingUsers(true);
                 await delay(1000);
                 console.log(offset);
+
+                if (!user){
+                    return;
+                }
+
                 const users = await api.getUsers(offset);
                 if (users) {
                     setUsers(users);

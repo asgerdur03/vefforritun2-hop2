@@ -7,6 +7,7 @@
 | Hermann Ingi   | hih65@hi.is              | @hemmih       |
 | Vilborg Erlends| vie15@hi.is              | @vilborg14    |
 
+
 ## Uppsetning
 
 Setja skal upp .env skrá með `NEXT_PUBLIC_BASE_URL = <linkur á vefþjónustu>`. Sjálfgefið gildi er `https://veff2-hop1.onrender.com`, en hægt er að keyra bakenda og nota þá localhost í staðin"

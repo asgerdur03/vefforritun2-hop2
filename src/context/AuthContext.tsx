@@ -7,14 +7,16 @@ type AuthContextType = {
     user: User | null;
     login: (user: User, token: string) => void;
     logout: () => void;
-    loading: boolean
+    loading: boolean,
+    setUser: React.Dispatch<React.SetStateAction<User | null>>
 }
 
 const AuthContext = createContext<AuthContextType>({
     user: null,
     login: () => {},
     logout: () => {},
-    loading: true
+    loading: true,
+    setUser: () => {},
 } );
 
 export const AuthProvider = ({children}: {children: React.ReactNode}) => {
@@ -43,7 +45,7 @@ export const AuthProvider = ({children}: {children: React.ReactNode}) => {
     };
 
     return (
-        <AuthContext.Provider value={{user, login, logout, loading}}>
+        <AuthContext.Provider value={{user, login, logout, loading, setUser}}>
             {children}
         </AuthContext.Provider>
     )

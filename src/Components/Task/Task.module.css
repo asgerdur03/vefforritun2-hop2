@@ -8,6 +8,9 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.task:hover{
+    background-color: var(--theme-color-dark);
+}
 @media (max-width: 620px) {
     .task{
         width: 100%;

@@ -4,6 +4,7 @@ import styles from "./Navbar.module.css";
 import { usePathname } from "next/navigation";
 import { LogoutRounded } from "@mui/icons-material";
 import { useAuth} from "@/context/AuthContext";
+import Image from "next/image";
 
 /*
 * Show losing if user is not logged in
@@ -15,7 +16,6 @@ export default function Navbar() {
 
     const {user, logout, loading} = useAuth();
 
-    const loggedIn = user !== null
 
     const pathName = usePathname();
 
@@ -36,12 +36,15 @@ export default function Navbar() {
                 Tasks
             </Link>
 
-            {loggedIn ? (
-                <LogoutRounded onClick={logout}/>) : (<Link href="login" className={`${styles.link} ${pathName === '/login' ? styles.active : ''}`}> Login</Link>)
+            {user ? (
+            <>
+                <Link href="/user" >
+                    <Image className={styles.userImage} src={user.imageUrl ?? "https://res.cloudinary.com/dafrwbefp/image/upload/v1743813795/uploads/e6i2hf3unibh3vterwex.png"} alt="user" width={50} height={50}/>
+                </Link>
+                <LogoutRounded  className={styles.logout} onClick={logout}/>
+            </>
+            ) : (<Link href="login" className={`${styles.link} ${pathName === '/login' ? styles.active : ''}`}> Login</Link>)
             }
-
-            <Link href="/user">{user?.username}</Link>
-            
 
             </nav>
 

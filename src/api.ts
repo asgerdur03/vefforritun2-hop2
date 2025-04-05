@@ -1,6 +1,6 @@
 import { User, Category, Task, CreateTask} from "./types";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3001';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://veff2-hop1.onrender.com';
 
 export class TaskApi{
 
@@ -133,7 +133,18 @@ export class TaskApi{
     async getUsers(offset: number): Promise<User[]|null> {
         const url = `${BASE_URL}/users?offset=${offset}`;
         const response = await this.fetchFromApi<User[]| null>(url);
+        return response;
+    }
 
+    async updateUser(userId: string, imageUrl: string): Promise<User | null> {
+        const url = `${BASE_URL}/users/${userId}`;
+        const response = await this.fetchFromApi<User| null>(url, {
+            method: 'PATCH',
+            body: {
+                
+                imageUrl: imageUrl
+            }
+        });
         return response;
     }
 

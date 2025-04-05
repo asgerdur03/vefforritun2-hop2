@@ -31,35 +31,32 @@ export default function Tasks() {
 
     const [showForm, setShowForm] = useState(false);
 
-    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    const fetchTasks = async () => {
+        console.log(offset);
+        if (!user){
+            setLoggedIn(false);
+            return;
+        }else {setLoggedIn(true);}
+        
+        
+        if (!loading && user){
+            try {
+
+                const api = new TaskApi();
+                setLoadingTasks(true);
+                const data=await api.getTasks(offset);
+                if (data) {
+                    setTasks(data.tasks);
+                }
+            } catch (error) {
+            console.error('Error fetching tasks:', error);
+            } finally {
+                setLoadingTasks(false);
+            }
+        }
+    }
 
     useEffect(() => {
-        const fetchTasks = async () => {
-            console.log(offset);
-            if (!user){
-                setLoggedIn(false);
-                return;
-            }else {setLoggedIn(true);}
-            
-            
-            if (!loading && user){
-                try {
-
-                    const api = new TaskApi();
-                    setLoadingTasks(true);
-                    await delay(1000);
-                    const data=await api.getTasks(offset);
-                    if (data) {
-                        setTasks(data.tasks);
-                    }
-                } catch (error) {
-                console.error('Error fetching tasks:', error);
-                } finally {
-                    setLoadingTasks(false);
-                }
-            }
-            
-        };
         fetchTasks();
         // if I add tasks, console goes crazy rerendering, if not, i need to reload when i delete task
     }, [loading, user, offset]);
@@ -70,8 +67,11 @@ export default function Tasks() {
             const api = new TaskApi();
             const response = await api.createTask(task);
             console.log("response", response);
+            
         } catch (error) {
             console.error('Error creating task:', error);
+        }finally {
+            fetchTasks();
         }
     }
 
@@ -93,6 +93,7 @@ export default function Tasks() {
                     dueDate={task.dueDate}
                     categoryId={task.categoryId}
                     userId={task.userId}
+                    onTaskDelete={fetchTasks}
                 />
                 ))}
                 <button className={styles.taskButton} onClick={() => setShowForm(true)}>Create Task</button>
